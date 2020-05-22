@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstudydemo/DecorationBoxRoute.dart';
 import 'package:flutterstudydemo/Echo.dart';
+import 'package:flutterstudydemo/FlexContainerRoute.dart';
 import 'package:flutterstudydemo/FormTestRouter.dart';
 import 'package:flutterstudydemo/ImageStudy.dart';
+import 'package:flutterstudydemo/LinearContainerroute.dart';
 import 'package:flutterstudydemo/LoginPage.dart';
 import 'package:flutterstudydemo/NewRoute.dart';
 import 'package:flutterstudydemo/ProgressIndicatorRoute.dart';
 import 'package:flutterstudydemo/RouteTestRoute.dart';
+import 'package:flutterstudydemo/StackAndPositionedRoute.dart';
 import 'package:flutterstudydemo/SwitchAndCheckBoxTestRouter.dart';
+import 'package:flutterstudydemo/TransformRoute.dart';
 
+import 'AlignRoute.dart';
 import 'Button.dart';
+import 'WrapAndFlowContainerRoute.dart';
 
 void main() {
   runApp(MyApp());
@@ -53,8 +60,14 @@ class MyApp extends StatelessWidget {
               SwitchAndCheckBoxTestRouter(),
           "login_route":(context)=> LoginPage(),
           "form_test_router":(context) => FormTestRouter(),
-          "progress_indicator_route":(context) => ProgressIndicatorRoute()
-
+          "progress_indicator_route":(context) => ProgressIndicatorRoute(),
+          "linear_container_route":(context) => LinearContainerRoute(),
+          "flex_container_route":(context) => FlexContainerRoute(),
+          "wrap_and_flow_route":(context) => WrapAndFlowContainerRoute(),
+          "stack_and_positioned_route":(context) => StackAndPositionedRoute(),
+          "align_route":(context) => AlignRoute(),
+          "decoration_box_route":(context) => DecorationBoxRoute(),
+          "transform_route":(context) => TransformRoute()
 //        "my_home_page":(context)=>MyHomePage(title: "Flutter Demo Home Page",)//注册首页路由
         },
         home: MyHomePage(
@@ -170,6 +183,48 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("progress indicator"),
                 onPressed: (){
                   Navigator.pushNamed(context, "progress_indicator_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("linear container route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "linear_container_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("flex container route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "flex_container_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("wrap_and_flow_route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "wrap_and_flow_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("stack_and_positioned_route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "stack_and_positioned_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("align_route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "align_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("decoration_box_route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "decoration_box_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("transform_route"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "transform_route");
                 },
               )
             ],
