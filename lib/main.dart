@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutterstudydemo/Echo.dart';
+import 'package:flutterstudydemo/FormTestRouter.dart';
+import 'package:flutterstudydemo/ImageStudy.dart';
+import 'package:flutterstudydemo/LoginPage.dart';
 import 'package:flutterstudydemo/NewRoute.dart';
+import 'package:flutterstudydemo/ProgressIndicatorRoute.dart';
 import 'package:flutterstudydemo/RouteTestRoute.dart';
+import 'package:flutterstudydemo/SwitchAndCheckBoxTestRouter.dart';
+
+import 'Button.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,38 +23,43 @@ void main() {
 //
 //}
 
-
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      //注册路由表
-      routes: {
-        "new_route":(context)=>NewRoute(),
-        "route_test_route":(context)=>RouteTestRoute(),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+          // This makes the visual density adapt to the platform that you run
+          // the app on. For desktop platforms, the controls will be smaller and
+          // closer together (more dense) than on mobile platforms.
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        //注册路由表
+        routes: {
+          "button_route": (context) => Button(),
+          "image_route": (context) => ImageStudy(),
+          "switch_and_checkbox_route": (context) =>
+              SwitchAndCheckBoxTestRouter(),
+          "login_route":(context)=> LoginPage(),
+          "form_test_router":(context) => FormTestRouter(),
+          "progress_indicator_route":(context) => ProgressIndicatorRoute()
+
 //        "my_home_page":(context)=>MyHomePage(title: "Flutter Demo Home Page",)//注册首页路由
-      },
-      home: CounterWidget(initValue: 0,),
-    );
+        },
+        home: MyHomePage(
+          title: 'this is flutter teach demo',
+        ));
   }
 }
 
@@ -69,14 +81,15 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class CounterWidget extends StatefulWidget{
-  CounterWidget({Key key,this.initValue}):super(key:key);
+class CounterWidget extends StatefulWidget {
+  CounterWidget({Key key, this.initValue}) : super(key: key);
   final int initValue;
+
   @override
   State<StatefulWidget> createState() => _CounterWidgetState();
 }
 
-class _CounterWidgetState extends State<CounterWidget>{
+class _CounterWidgetState extends State<CounterWidget> {
   int _counter;
 
   @override
@@ -88,25 +101,17 @@ class _CounterWidgetState extends State<CounterWidget>{
 
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
-        body: Center(
-          child: FlatButton(
-            textColor: Colors.blue,
-            child: Text("$_counter"),
-            onPressed: ()=>setState(()=>{
-              ++_counter
-            }),
-          ),
+    return Scaffold(
+      body: Center(
+        child: FlatButton(
+          textColor: Colors.blue,
+          child: Text("$_counter"),
+          onPressed: () => setState(() => {++_counter}),
         ),
-      );
+      ),
+    );
   }
-
 }
-
-
-
-
-
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
@@ -124,72 +129,53 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            FlatButton(
-              child: Text("this is a new route"),
-              textColor: Colors.blue,
-              onPressed: (){
-                //导航到新路由
-                Navigator.pushNamed(context, "new_route");
-              },
-            ),
-            FlatButton(
-              child: Text("open result route page"),
-              textColor: Colors.blue,
-              onPressed: (){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context){
-                    return RouteTestRoute();
-                  })
-                );
-              },
-            )
-          ],
-        ),
+        child: SingleChildScrollView(
+          child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              OutlineButton(
+                  child: Text("button"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "button_route");
+                  }),
+              OutlineButton(
+                  child: Text("image"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "image_route");
+                  }),
+              OutlineButton(
+                child: Text("switchAndCheckbox"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "switch_and_checkbox_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("loginActivity"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "login_route");
+                },
+              ),
+              OutlineButton(
+                child: Text("form_test_router"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "form_test_router");
+                },
+              ),
+              OutlineButton(
+                child: Text("progress indicator"),
+                onPressed: (){
+                  Navigator.pushNamed(context, "progress_indicator_route");
+                },
+              )
+            ],
+          ),
+        )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
