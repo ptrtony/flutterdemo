@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstudydemo/ClipTestRoute.dart';
+import 'package:flutterstudydemo/ContainerRoute.dart';
 import 'package:flutterstudydemo/DecorationBoxRoute.dart';
-import 'package:flutterstudydemo/Echo.dart';
 import 'package:flutterstudydemo/FlexContainerRoute.dart';
 import 'package:flutterstudydemo/FormTestRouter.dart';
 import 'package:flutterstudydemo/ImageStudy.dart';
+import 'package:flutterstudydemo/InfiniteListViewRoute.dart';
 import 'package:flutterstudydemo/LinearContainerroute.dart';
+import 'package:flutterstudydemo/ListViewRouter.dart';
+import 'package:flutterstudydemo/ListViewSeparatedRoute.dart';
 import 'package:flutterstudydemo/LoginPage.dart';
-import 'package:flutterstudydemo/NewRoute.dart';
 import 'package:flutterstudydemo/ProgressIndicatorRoute.dart';
-import 'package:flutterstudydemo/RouteTestRoute.dart';
+import 'package:flutterstudydemo/ScaffoldRoute.dart';
+import 'package:flutterstudydemo/ScaffoldTwoRoute.dart';
+import 'package:flutterstudydemo/SingleChildScrollViewTestRoute.dart';
 import 'package:flutterstudydemo/StackAndPositionedRoute.dart';
 import 'package:flutterstudydemo/SwitchAndCheckBoxTestRouter.dart';
 import 'package:flutterstudydemo/TransformRoute.dart';
@@ -58,16 +63,24 @@ class MyApp extends StatelessWidget {
           "image_route": (context) => ImageStudy(),
           "switch_and_checkbox_route": (context) =>
               SwitchAndCheckBoxTestRouter(),
-          "login_route":(context)=> LoginPage(),
-          "form_test_router":(context) => FormTestRouter(),
-          "progress_indicator_route":(context) => ProgressIndicatorRoute(),
-          "linear_container_route":(context) => LinearContainerRoute(),
-          "flex_container_route":(context) => FlexContainerRoute(),
-          "wrap_and_flow_route":(context) => WrapAndFlowContainerRoute(),
-          "stack_and_positioned_route":(context) => StackAndPositionedRoute(),
-          "align_route":(context) => AlignRoute(),
-          "decoration_box_route":(context) => DecorationBoxRoute(),
-          "transform_route":(context) => TransformRoute()
+          "login_route": (context) => LoginPage(),
+          "form_test_router": (context) => FormTestRouter(),
+          "progress_indicator_route": (context) => ProgressIndicatorRoute(),
+          "linear_container_route": (context) => LinearContainerRoute(),
+          "flex_container_route": (context) => FlexContainerRoute(),
+          "wrap_and_flow_route": (context) => WrapAndFlowContainerRoute(),
+          "stack_and_positioned_route": (context) => StackAndPositionedRoute(),
+          "align_route": (context) => AlignRoute(),
+          "decoration_box_route": (context) => DecorationBoxRoute(),
+          "transform_route": (context) => TransformRoute(),
+          "container_route": (context) => ContainerRoute(),
+          "scaffold_route":(context) => ScaffoldRoute(),
+          "scaffold_two_route":(context) => ScaffoldTwoRoute(),
+          "clip_test_route":(context) => ClipTestRoute(),
+          "single_scroll_view_route":(context) => SingleChildScrollViewTestRoute(),
+          "list_view_route":(context) => ListViewRouter(),
+          "list_separated_route":(context) => ListViewSeparatedRoute(),
+          "infinite_list_route":(context) => InfiniteListViewRoute()
 //        "my_home_page":(context)=>MyHomePage(title: "Flutter Demo Home Page",)//注册首页路由
         },
         home: MyHomePage(
@@ -147,90 +160,134 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: SingleChildScrollView(
-          child:  Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              OutlineButton(
-                  child: Text("button"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "button_route");
-                  }),
-              OutlineButton(
-                  child: Text("image"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "image_route");
-                  }),
-              OutlineButton(
-                child: Text("switchAndCheckbox"),
+          child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            OutlineButton(
+                child: Text("button"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "button_route");
+                }),
+            OutlineButton(
+                child: Text("image"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "image_route");
+                }),
+            OutlineButton(
+              child: Text("switchAndCheckbox"),
+              onPressed: () {
+                Navigator.pushNamed(context, "switch_and_checkbox_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("loginActivity"),
+              onPressed: () {
+                Navigator.pushNamed(context, "login_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("form_test_router"),
+              onPressed: () {
+                Navigator.pushNamed(context, "form_test_router");
+              },
+            ),
+            OutlineButton(
+              child: Text("progress indicator"),
+              onPressed: () {
+                Navigator.pushNamed(context, "progress_indicator_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("linear container route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "linear_container_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("flex container route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "flex_container_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("wrap_and_flow_route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "wrap_and_flow_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("stack_and_positioned_route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "stack_and_positioned_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("align_route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "align_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("decoration_box_route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "decoration_box_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("transform_route"),
+              onPressed: () {
+                Navigator.pushNamed(context, "transform_route");
+              },
+            ),
+            OutlineButton(
+                child: Text("container_route"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "container_route");
+                }),
+            OutlineButton(
+              child: Text("scaffold_route"),
+              onPressed: (){
+                Navigator.pushNamed(context, "scaffold_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("scaffold_two_route"),
+              onPressed: (){
+                Navigator.pushNamed(context, "scaffold_two_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("clip_test_route"),
+              onPressed: (){
+                Navigator.pushNamed(context, "clip_test_route");
+              },
+            ),
+            OutlineButton(
+              child: Text("single_scroll_view_route"),
+              onPressed: (){
+                Navigator.pushNamed(context, "single_scroll_view_route");
+              },
+            ),
+            OutlineButton(
+                child: Text("list_view_route"),
                 onPressed: (){
-                  Navigator.pushNamed(context, "switch_and_checkbox_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("loginActivity"),
+                Navigator.pushNamed(context, "list_view_route");
+            }),
+            OutlineButton(
+                child: Text("list_separated_route"),
                 onPressed: (){
-                  Navigator.pushNamed(context, "login_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("form_test_router"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "form_test_router");
-                },
-              ),
-              OutlineButton(
-                child: Text("progress indicator"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "progress_indicator_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("linear container route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "linear_container_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("flex container route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "flex_container_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("wrap_and_flow_route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "wrap_and_flow_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("stack_and_positioned_route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "stack_and_positioned_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("align_route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "align_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("decoration_box_route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "decoration_box_route");
-                },
-              ),
-              OutlineButton(
-                child: Text("transform_route"),
-                onPressed: (){
-                  Navigator.pushNamed(context, "transform_route");
-                },
-              )
-            ],
-          ),
-        )
-      ),
+              Navigator.pushNamed(context, "list_separated_route");
+            }),
+            OutlineButton(
+              child: Text("infinite_list_route"),
+              onPressed: (){
+                Navigator.pushNamed(context, "infinite_list_route");
+              },
+            )
+          ],
+        ),
+      )),
     );
   }
 }

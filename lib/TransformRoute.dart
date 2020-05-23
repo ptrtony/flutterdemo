@@ -38,6 +38,25 @@ class TransformRoute extends StatelessWidget{
               child: Transform.rotate(angle: 90 ,
                 child: Text("hello world"),
               ),
+            ),
+            DecoratedBox(
+              decoration: BoxDecoration(color: Colors.red),
+              child: Transform.scale(scale: 1.5,
+              child: Text("hello world"),),
+
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.red),
+                  child: RotatedBox(
+                    quarterTurns: 1,
+                    child: Text("hello world",style: TextStyle(color:Colors.white),),
+                  ),
+                ),
+                Text("你好",style: TextStyle(color: Colors.green),)
+              ],
             )
           ],
         ),
