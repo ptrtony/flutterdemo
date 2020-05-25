@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterstudydemo/ClipTestRoute.dart';
 import 'package:flutterstudydemo/ContainerRoute.dart';
+import 'package:flutterstudydemo/CustomScrollViewRoute.dart';
+import 'package:flutterstudydemo/DataShareRoute.dart';
 import 'package:flutterstudydemo/DecorationBoxRoute.dart';
 import 'package:flutterstudydemo/FlexContainerRoute.dart';
 import 'package:flutterstudydemo/FormTestRouter.dart';
@@ -10,6 +12,7 @@ import 'package:flutterstudydemo/LinearContainerroute.dart';
 import 'package:flutterstudydemo/ListViewRouter.dart';
 import 'package:flutterstudydemo/ListViewSeparatedRoute.dart';
 import 'package:flutterstudydemo/LoginPage.dart';
+import 'package:flutterstudydemo/NavigatorInterceptRoute.dart';
 import 'package:flutterstudydemo/ProgressIndicatorRoute.dart';
 import 'package:flutterstudydemo/ScaffoldRoute.dart';
 import 'package:flutterstudydemo/ScaffoldTwoRoute.dart';
@@ -18,9 +21,14 @@ import 'package:flutterstudydemo/StackAndPositionedRoute.dart';
 import 'package:flutterstudydemo/SwitchAndCheckBoxTestRouter.dart';
 import 'package:flutterstudydemo/TransformRoute.dart';
 
+import 'AlertDialogRoute.dart';
 import 'AlignRoute.dart';
 import 'Button.dart';
+import 'ColorAndThemeRoute.dart';
+import 'FutureBuildRoute.dart';
+import 'ScrollControlRoute.dart';
 import 'WrapAndFlowContainerRoute.dart';
+import 'car/ProvideRoute.dart';
 
 void main() {
   runApp(MyApp());
@@ -74,13 +82,23 @@ class MyApp extends StatelessWidget {
           "decoration_box_route": (context) => DecorationBoxRoute(),
           "transform_route": (context) => TransformRoute(),
           "container_route": (context) => ContainerRoute(),
-          "scaffold_route":(context) => ScaffoldRoute(),
-          "scaffold_two_route":(context) => ScaffoldTwoRoute(),
-          "clip_test_route":(context) => ClipTestRoute(),
-          "single_scroll_view_route":(context) => SingleChildScrollViewTestRoute(),
-          "list_view_route":(context) => ListViewRouter(),
-          "list_separated_route":(context) => ListViewSeparatedRoute(),
-          "infinite_list_route":(context) => InfiniteListViewRoute()
+          "scaffold_route": (context) => ScaffoldRoute(),
+          "scaffold_two_route": (context) => ScaffoldTwoRoute(),
+          "clip_test_route": (context) => ClipTestRoute(),
+          "single_scroll_view_route": (context) =>
+              SingleChildScrollViewTestRoute(),
+          "list_view_route": (context) => ListViewRouter(),
+          "list_separated_route": (context) => ListViewSeparatedRoute(),
+          "infinite_list_route": (context) => InfiniteListViewRoute(),
+          "custom_scroll_route": (context) => CustomScrollViewRoute(),
+          "scroll_controller_route": (context) => ScrollControlRoute(),
+          "navigator_intercept_route": (context) => NavigatorInterceptRoute(),
+          "inherited_route": (context) => DataShareRoute(),
+          "provide_route": (context) => ProvideRoute(),
+          "color_theme_route": (context) => ColorAndThemeRoute(),
+          "future_async_route": (context) => FutureBuildRoute(),
+          "alert_dialog_route": (context) => AlertDialogRoute()
+
 //        "my_home_page":(context)=>MyHomePage(title: "Flutter Demo Home Page",)//注册首页路由
         },
         home: MyHomePage(
@@ -165,17 +183,17 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             OutlineButton(
-                child: Text("button"),
+                child: Text("按钮组件"),
                 onPressed: () {
                   Navigator.pushNamed(context, "button_route");
                 }),
             OutlineButton(
-                child: Text("image"),
+                child: Text("图片组件"),
                 onPressed: () {
                   Navigator.pushNamed(context, "image_route");
                 }),
             OutlineButton(
-              child: Text("switchAndCheckbox"),
+              child: Text("单选框和复选框"),
               onPressed: () {
                 Navigator.pushNamed(context, "switch_and_checkbox_route");
               },
@@ -187,37 +205,37 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             OutlineButton(
-              child: Text("form_test_router"),
+              child: Text("输入框和表单"),
               onPressed: () {
                 Navigator.pushNamed(context, "form_test_router");
               },
             ),
             OutlineButton(
-              child: Text("progress indicator"),
+              child: Text("进度指示器"),
               onPressed: () {
                 Navigator.pushNamed(context, "progress_indicator_route");
               },
             ),
             OutlineButton(
-              child: Text("linear container route"),
+              child: Text("线性布局"),
               onPressed: () {
                 Navigator.pushNamed(context, "linear_container_route");
               },
             ),
             OutlineButton(
-              child: Text("flex container route"),
+              child: Text("弹性布局"),
               onPressed: () {
                 Navigator.pushNamed(context, "flex_container_route");
               },
             ),
             OutlineButton(
-              child: Text("wrap_and_flow_route"),
+              child: Text("流式布局"),
               onPressed: () {
                 Navigator.pushNamed(context, "wrap_and_flow_route");
               },
             ),
             OutlineButton(
-              child: Text("stack_and_positioned_route"),
+              child: Text("层叠布局"),
               onPressed: () {
                 Navigator.pushNamed(context, "stack_and_positioned_route");
               },
@@ -229,62 +247,103 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             OutlineButton(
-              child: Text("decoration_box_route"),
+              child: Text("装饰容器"),
               onPressed: () {
                 Navigator.pushNamed(context, "decoration_box_route");
               },
             ),
             OutlineButton(
-              child: Text("transform_route"),
+              child: Text("transform变换"),
               onPressed: () {
                 Navigator.pushNamed(context, "transform_route");
               },
             ),
             OutlineButton(
-                child: Text("container_route"),
+                child: Text("container容器"),
                 onPressed: () {
                   Navigator.pushNamed(context, "container_route");
                 }),
             OutlineButton(
               child: Text("scaffold_route"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, "scaffold_route");
               },
             ),
             OutlineButton(
               child: Text("scaffold_two_route"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, "scaffold_two_route");
               },
             ),
             OutlineButton(
-              child: Text("clip_test_route"),
-              onPressed: (){
+              child: Text("剪裁"),
+              onPressed: () {
                 Navigator.pushNamed(context, "clip_test_route");
               },
             ),
             OutlineButton(
               child: Text("single_scroll_view_route"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, "single_scroll_view_route");
               },
             ),
             OutlineButton(
                 child: Text("list_view_route"),
-                onPressed: (){
-                Navigator.pushNamed(context, "list_view_route");
-            }),
+                onPressed: () {
+                  Navigator.pushNamed(context, "list_view_route");
+                }),
             OutlineButton(
                 child: Text("list_separated_route"),
-                onPressed: (){
-              Navigator.pushNamed(context, "list_separated_route");
-            }),
+                onPressed: () {
+                  Navigator.pushNamed(context, "list_separated_route");
+                }),
             OutlineButton(
               child: Text("infinite_list_route"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, "infinite_list_route");
               },
-            )
+            ),
+            OutlineButton(
+                child: Text("custom_scroll_route"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "custom_scroll_route");
+                }),
+            OutlineButton(
+                child: Text("滚动监听及控制"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "scroll_controller_route");
+                }),
+            OutlineButton(
+                child: Text("导航返回拦截"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "navigator_intercept_route");
+                }),
+            OutlineButton(
+                child: Text("数据共享"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "inherited_route");
+                }),
+            OutlineButton(
+              child: Text("跨组件状态管理"),
+              onPressed: () {
+                Navigator.pushNamed(context, "provide_route");
+              },
+            ),
+            OutlineButton(
+                child: Text("颜色和主题"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "color_theme_route");
+                }),
+            OutlineButton(
+                child: Text("异步ui更新"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "future_async_route");
+                }),
+            OutlineButton(
+                child: Text("对话框"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "alert_dialog_route");
+                })
           ],
         ),
       )),
