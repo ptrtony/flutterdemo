@@ -18,6 +18,7 @@ import 'package:flutterstudydemo/ScaffoldRoute.dart';
 import 'package:flutterstudydemo/ScaffoldTwoRoute.dart';
 import 'package:flutterstudydemo/SingleChildScrollViewTestRoute.dart';
 import 'package:flutterstudydemo/StackAndPositionedRoute.dart';
+import 'package:flutterstudydemo/StaggerRoute.dart';
 import 'package:flutterstudydemo/SwitchAndCheckBoxTestRouter.dart';
 import 'package:flutterstudydemo/TransformRoute.dart';
 
@@ -25,6 +26,7 @@ import 'AlertDialogRoute.dart';
 import 'AlignRoute.dart';
 import 'Button.dart';
 import 'ColorAndThemeRoute.dart';
+import 'DragViewRoute.dart';
 import 'FutureBuildRoute.dart';
 import 'ScrollControlRoute.dart';
 import 'WrapAndFlowContainerRoute.dart';
@@ -97,7 +99,9 @@ class MyApp extends StatelessWidget {
           "provide_route": (context) => ProvideRoute(),
           "color_theme_route": (context) => ColorAndThemeRoute(),
           "future_async_route": (context) => FutureBuildRoute(),
-          "alert_dialog_route": (context) => AlertDialogRoute()
+          "alert_dialog_route": (context) => AlertDialogRoute(),
+          "drag_route": (context) => DragViewRoute(),
+          "stagger_route": (context) => StaggerRoute()
 
 //        "my_home_page":(context)=>MyHomePage(title: "Flutter Demo Home Page",)//注册首页路由
         },
@@ -343,6 +347,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("对话框"),
                 onPressed: () {
                   Navigator.pushNamed(context, "alert_dialog_route");
+                }),
+            OutlineButton(
+                child: Text("拖拽"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "drag_route");
+                }),
+            OutlineButton(
+                child: Text("交互动画"),
+                onPressed: () {
+                  Navigator.pushNamed(context, "stagger_route");
                 })
           ],
         ),
